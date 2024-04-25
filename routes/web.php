@@ -25,12 +25,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/', [UserController::class, 'user'])->middleware('verified');
-Route::get('/tim', function () {
-    return view('Tim', ['Title' => 'Tim']);
-})->middleware('verified');
+// Route::get('/tim' . '{' . auth()->user()->id . '}', [UserController::class, 'tim'])->middleware('verified');
+Route::get('/tim', [UserController::class, 'tim'])->middleware('verified');
 Route::get('/profiles', [UserController::class, 'profile'])->middleware('verified');
 Route::get('/detail/{id}', [BarangController::class, 'invest'])->middleware('verified');
 
+Route::get('/admin', [UserController::class, 'admin'])->middleware('verified');
 // Route::get('/detail', [UserController::class, 'show']);
 
 Route::get('/withdraw', function () {
@@ -42,4 +42,19 @@ Route::get('/payment', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::get('/tambahbarang', function () {
+    return view('tambahbarang', ['Title' => 'Tambah Barang']);
+});
+Route::get('/acc', function () {
+    return view('acctransaction', ['Title' => 'Acc']);
+});
+Route::get('/accinvest', function () {
+    return view('investpeople', ['Title' => 'Acc Invest']);
+});
+Route::get('/accwithdraw', function () {
+    return view('accwithdraw', ['Title' => 'Acc withdraw']);
+});

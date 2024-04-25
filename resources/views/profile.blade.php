@@ -8,7 +8,7 @@
                     style="width: 100px;">
                 <div class="media-body">
                     <h5 class="mt-0">{{ auth()->user()->name }}</h5>
-                    <p>+62</p>
+                    <p>+62{{ auth()->user()->No_Telp }}</p>
                     <div class="row">
                         <div class="col-3 mt-2">
                             <p>My Money: </p>

@@ -12,6 +12,7 @@
         </div>
     </div>
 
+    {{-- @foreach ($invite as $data) --}}
     <div class="card text-center mx-auto mt-3" style="width: 18rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
         data-aos="fade-up">
         <div class="card-header" style="background-color: #f8f9fa;">
@@ -21,10 +22,12 @@
                         style="width: 100px; margin-top: 10px; margin-bottom: 10px;">
                 </div>
                 <div class="col-6">
-                    <h5 class="mt-4 mb-0" style="font-family: Arial, sans-serif; color: #333;">{{ auth()->user()->name }}
+                    <h5 class="mt-4 mb-0" style="font-family: Arial, sans-serif; color: #333;">
+
                     </h5>
                 </div>
             </div>
         </div>
     </div>
+    {{-- @endforeach --}}
 @endsection
