@@ -29,17 +29,4 @@ class UserController extends Controller
             'Title' => 'Profile',
         ]);
     }
-    public function referral()
-    {
-        return $this->belongsTo(User::class, 'id');
-    }
-    public function referrals()
-    {
-        return $this->hasMany(User::class, 'name');
-    }
-    public function tim(User $id)
-    {
-        $invite = $id->referrals;
-        return view('tim', ['Title' => 'Tim', 'invite' => $invite]);
-    }
 }

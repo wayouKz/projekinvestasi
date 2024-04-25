@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Referal extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTO(User::class);
+    }
 }

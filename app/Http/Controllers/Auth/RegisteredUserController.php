@@ -40,8 +40,11 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'saldo' => 0,
-            'p_code' => random_int(100000, 1000000),
             'password' => Hash::make($request->password),
+        ]);
+
+        $p = Referal::create([
+            'p_code' => randomInt(100000, 1000000),
         ]);
 
         event(new Registered($user));
